@@ -1,0 +1,44 @@
+#include "Graph.h"
+using namespace std;
+int main(){
+	Graph g1(UNDIRECTED);
+	cout<<"ALL OF THIS IS FOR GRAPH 1" << endl;
+	g1.readFromFile("testRead2.txt");
+	g1.writeToFile("testWrite2.txt");
+	cout<<"Number of connected components Graph 1: "<<endl;
+	cout << g1.numConnectedComponents() << endl;
+	g1.DFT(1,"DFTTestg1.txt");
+	g1.BFT(2,"BFTTestg1.txt");
+	cout<<"Closeness Graph 1: "<<endl;
+	cout<<g1.closeness(1, 4)<<endl;
+	cout<<g1.closeness(2, 6)<<endl;
+	cout<<g1.closeness(4, 5)<<endl;
+	cout<<g1.closeness(2, 2)<<endl;
+	cout<<"Graph 1 Partitionable: ";
+	cout<<g1.partitionable()<<endl;
+	cout<<"Graph 1 Tree: ";
+	cout<<g1.tree()<<endl;
+	g1.stepAway(2,-1, "StepAwayg11.txt");
+	g1.stepAway(1, 2, "StepAwayg12.txt");
+	g1.stepAway(2, 1, "StepAwayg13.txt");
+	g1.MST("MSTTestg1.txt");
+	Graph g2(DIRECTED);	
+	cout<<"ALL OF THIS IS FOR GRAPH 2"<< endl;
+	g2.readFromFile("testRead.txt");
+	g2.writeToFile("testWrite.txt");
+	cout<<"Graph 2 Number of connected components: "<<endl;
+	cout << g2.numConnectedComponents() << endl;
+	g2.DFT(2,"DFTTestg21.txt");
+	g2.DFT(4,"DFTTestg22.txt");
+	g2.BFT(7,"BFTTestg2.txt");
+	cout<<"Graph 2 Closeness: "<<endl;
+	cout<<g2.closeness(4, 2)<<endl;
+	cout<<g2.closeness(6, 4)<<endl;
+	cout<<"Graph 2 Partitionable: ";
+	cout<<g2.partitionable()<<endl;
+	cout<<"Graph 2 Tree: "<<endl;
+	cout<<g2.tree()<<endl;
+	g2.stepAway(4, -1, "StepAwayg2.txt");
+	g2.MST("MSTTestg2.txt");
+	return 0;
+}
